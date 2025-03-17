@@ -1,0 +1,40 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+server:
+  port: 8762
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  aop:
+    auto: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://192.168.1.81:1433;databaseName=DB-ALVA;encrypt=false;trustServerCertificate=true;
+    username: sa
+    password: dev*2304
+
+  redis:
+    host: localhost
+    port: 6379
+    time-to-live: 60000
+  cache:
+    type: redis
+  jpa:
+    show-sql: true
+
+swagger:
+  enabled: true
+
+logging:
+  level:
+    org.springframework: ERROR

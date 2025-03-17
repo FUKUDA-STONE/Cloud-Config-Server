@@ -1,0 +1,49 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+
+server:
+  port: 8090
+
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://192.168.1.81:1433;databaseName=DB-ALVA;encrypt=false;trustServerCertificate=true;
+    username: sa
+    password: dev*2304
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/AlvaDB
+  servlet:
+    # Giới hạn kích thước file tải lên
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+      # Giới hạn tổng số lượng file tải lên
+      file-size-threshold: 2MB
+
+  aop:
+    auto: true
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  redis:
+    time-to-live: 60000
+    host: localhost
+    port: 6379
+  cache:
+    type: redis
+  jpa:
+    show-sql: true
+
+swagger:
+  enabled: true
+
+logging:
+  level:
+    org.springframework: ERROR
