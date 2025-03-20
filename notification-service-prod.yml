@@ -4,9 +4,9 @@ eureka:
       defaultZone: http://localhost:8761/eureka
   instance:
     prefer-ip-address: true
-
 server:
   port: 8099
+
 
 spring:
   thymeleaf:
@@ -17,6 +17,8 @@ spring:
     cache: false
   application:
     name: notification-service
+  aop:
+    auto: true
   mail:
     host: smtp.gmail.com
     port: 587
@@ -40,8 +42,6 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: "*"
-  aop:
-    auto: true
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
@@ -67,6 +67,3 @@ swagger:
 logging:
   level:
     org.springframework: ERROR
-token:
-  time:
-    refresh: 84000000
